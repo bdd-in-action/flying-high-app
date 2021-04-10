@@ -5,7 +5,7 @@ Go to the server directory and you'll see a dist folder which contains the built
 In this server directory, install all back-end dependencies by using `npm install` and then simply start the app by using `node dist/main`<br>
 If you want to develop the project by yourself, please refer to the README in the server or web folder.
 
-# How to run the application
+# How to run the application locally
 ## FRONT END BUILD
 The Angular front end needs to be built and deployed to the server/web directory 
 ```

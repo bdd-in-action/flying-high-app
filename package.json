@@ -1,0 +1,7 @@
+{
+  "name": "flying-high-app",
+  "version": "0.1.0",
+  "scripts": {
+    "postinstall": "npm install --prefix web && cp -Rf web/dist/web server && npm install --prefix server"
+  }
+}

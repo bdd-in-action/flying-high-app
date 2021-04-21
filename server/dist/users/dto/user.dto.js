@@ -13,6 +13,9 @@ exports.UserDto = void 0;
 const swagger_1 = require("@nestjs/swagger");
 const users_interface_1 = require("../interface/users.interface");
 class UserDto {
+    constructor() {
+        this.userLevel = users_interface_1.USER_LEVEL.STANDARD;
+    }
 }
 __decorate([
     swagger_1.ApiProperty(),
@@ -56,5 +59,13 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], UserDto.prototype, "seatPreference", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], UserDto.prototype, "userLevel", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Number)
+], UserDto.prototype, "points", void 0);
 exports.UserDto = UserDto;
 //# sourceMappingURL=user.dto.js.map

@@ -29,8 +29,8 @@ let UsersService = class UsersService {
                 address: '1677 S Havana St, Aurora',
                 title: users_interface_1.USER_TITLE.MS,
                 newsletterSub: true,
-                userLevel: users_interface_1.USER_LEVEL.BRONZE,
-                points: 1200,
+                userLevel: users_interface_1.USER_LEVEL.STANDARD,
+                points: 0,
                 country: 'United States of America (the)',
                 seatPreference: users_interface_1.SEAT_PREFERENCE.AISLE
             }
@@ -78,7 +78,7 @@ let UsersService = class UsersService {
             throw new common_1.BadRequestException(common_1.HttpStatus.BAD_REQUEST, 'User title is the type of enum: USER_TITLE: Mr, Ms OR Mrs');
         }
         const userId = this.generateRandomString(10);
-        const newUser = Object.assign(Object.assign({}, user), { points: 0, userLevel: users_interface_1.USER_LEVEL.STANDARD, userId });
+        const newUser = Object.assign(Object.assign({}, user), { userId });
         this.users.push(newUser);
         return newUser;
     }
@@ -146,46 +146,29 @@ let UsersService = class UsersService {
         const userLevel = authUser.userLevel;
         const currentUserIndex = this.users.findIndex(u => u.userId === authUser.userId);
         const currentPoints = authUser.points;
-        const totalPoints = points + currentPoints;
         let newTotalPoints;
         let earnedPoints;
         switch (userLevel) {
             case users_interface_1.USER_LEVEL.BRONZE: {
-                if (totalPoints >= 2000) {
-                    const pointsOfNextLevel = totalPoints - 2000;
-                    earnedPoints = (1 + 0.25) * (points - pointsOfNextLevel) + (1 + 0.5) * pointsOfNextLevel;
-                    newTotalPoints = earnedPoints + currentPoints;
-                }
-                else {
-                    earnedPoints = (1 + 0.25) * points;
-                    newTotalPoints = earnedPoints + currentPoints;
-                }
+                earnedPoints = (1 + 0.25) * points;
+                newTotalPoints = earnedPoints + currentPoints;
+                break;
             }
             case users_interface_1.USER_LEVEL.SILVER: {
-                if (totalPoints >= 5000) {
-                    const pointsOfNextLevel = totalPoints - 5000;
-                    earnedPoints = (1 + 0.5) * (points - pointsOfNextLevel) + (1 + 1) * pointsOfNextLevel;
-                    newTotalPoints = earnedPoints + currentPoints;
-                }
-                else {
-                    earnedPoints = (1 + 0.5) * points;
-                    newTotalPoints = earnedPoints + currentPoints;
-                }
+                earnedPoints = (1 + 0.5) * points;
+                newTotalPoints = earnedPoints + currentPoints;
+                break;
             }
             case users_interface_1.USER_LEVEL.GOLD: {
                 earnedPoints = points * 2;
                 newTotalPoints = currentPoints + points * 2;
+                console.log('EARNED POINTS:' + earnedPoints);
+                break;
             }
             default: {
-                if (totalPoints >= 1000) {
-                    const pointsOfNextLevel = totalPoints - 1000;
-                    earnedPoints = (points - pointsOfNextLevel) + (1 + 0.25) * pointsOfNextLevel;
-                    newTotalPoints = earnedPoints + currentPoints;
-                }
-                else {
-                    earnedPoints = points;
-                    newTotalPoints = earnedPoints + currentPoints;
-                }
+                earnedPoints = points;
+                newTotalPoints = earnedPoints + currentPoints;
+                break;
             }
         }
         newTotalPoints = Math.round(newTotalPoints);

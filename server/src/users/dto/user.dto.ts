@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { SEAT_PREFERENCE, USER_TITLE } from "../interface/users.interface";
+import { SEAT_PREFERENCE, USER_LEVEL, USER_TITLE } from "../interface/users.interface";
 
 export class UserDto {
     @ApiProperty()
@@ -30,4 +30,11 @@ export class UserDto {
         }
     )
     seatPreference: SEAT_PREFERENCE;
+
+    @ApiProperty()
+    userLevel: USER_LEVEL = USER_LEVEL.STANDARD;
+
+    @ApiProperty()
+    points: number;
+
 }

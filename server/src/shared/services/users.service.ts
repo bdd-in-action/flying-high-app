@@ -16,8 +16,8 @@ export class UsersService {
             address: '1677 S Havana St, Aurora',
             title: USER_TITLE.MS,
             newsletterSub: true,
-            userLevel: USER_LEVEL.BRONZE,
-            points: 1200,
+            userLevel: USER_LEVEL.STANDARD,
+            points: 0,
             country: 'United States of America (the)',
             seatPreference: SEAT_PREFERENCE.AISLE
         }
@@ -98,10 +98,10 @@ export class UsersService {
         }
         // create userId
         const userId = this.generateRandomString(10);
+
         const newUser = {
             ...user,
-            points: 0,
-            userLevel: USER_LEVEL.STANDARD,
+            // userLevel: USER_LEVEL.STANDARD,
             userId
         }
         this.users.push(newUser);
@@ -195,48 +195,45 @@ export class UsersService {
         };
     }
 
+    /**
+     * Threshold levels are:
+     *  - BRONZE: 1000 points (25% bonus)
+     *  - SILVER: 2000 points (50% bonus)
+     *  - GOLD: 5000 points (100% bonus)
+     * Only flights booked at a given status level earn the bonus points at that level.
+     * @param authUser 
+     * @param points 
+     * @returns 
+     */
     updateUserPointsAndLevel(authUser: User, points: number): number {
         const userLevel = authUser.userLevel;
         const currentUserIndex = this.users.findIndex(u => u.userId === authUser.userId);
         const currentPoints = authUser.points;
-        const totalPoints = points + currentPoints;
+        // const totalPoints = points + currentPoints;
         let newTotalPoints: number;
         let earnedPoints: number;
         switch (userLevel) {
             case USER_LEVEL.BRONZE: {
-                if (totalPoints >= 2000) {
-                    const pointsOfNextLevel = totalPoints - 2000;
-                    earnedPoints = (1 + 0.25) * (points - pointsOfNextLevel) + (1 + 0.5) * pointsOfNextLevel
-                    newTotalPoints = earnedPoints + currentPoints;
-                } else {
-                    earnedPoints = (1 + 0.25) * points;
-                    newTotalPoints = earnedPoints + currentPoints;
-                }
+                earnedPoints = (1 + 0.25) * points;
+                newTotalPoints = earnedPoints + currentPoints;
+                break;
             }
             case USER_LEVEL.SILVER: {
-                if (totalPoints >= 5000) {
-                    const pointsOfNextLevel = totalPoints - 5000;
-                    earnedPoints = (1 + 0.5) * (points - pointsOfNextLevel) + (1 + 1) * pointsOfNextLevel;
-                    newTotalPoints = earnedPoints + currentPoints;
-                } else {
-                    earnedPoints = (1 + 0.5) * points;
-                    newTotalPoints = earnedPoints + currentPoints;
-                }
+                earnedPoints = (1 + 0.5) * points;
+                newTotalPoints = earnedPoints + currentPoints;
+                break;
             }
             case USER_LEVEL.GOLD: {
                 earnedPoints = points * 2;
                 newTotalPoints = currentPoints + points * 2;
+                console.log('EARNED POINTS:' + earnedPoints);
+                break;
             }
             default: {
                 // standard level
-                if (totalPoints >= 1000) {
-                    const pointsOfNextLevel = totalPoints - 1000;
-                    earnedPoints = (points - pointsOfNextLevel) + (1 + 0.25) * pointsOfNextLevel;
-                    newTotalPoints = earnedPoints + currentPoints;
-                } else {
-                    earnedPoints = points;
-                    newTotalPoints = earnedPoints + currentPoints;
-                }
+                earnedPoints = points;
+                newTotalPoints = earnedPoints + currentPoints;
+                break;
             }
         }
         newTotalPoints = Math.round(newTotalPoints);

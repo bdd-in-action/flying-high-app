@@ -3,9 +3,7 @@
 
 name: Cypress Tests
 
-on:
-  release:
-    types: [created]
+on: push
 
 jobs:
   build:

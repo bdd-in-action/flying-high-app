@@ -35,5 +35,4 @@ context('On the welcome page', () => {
             menuBar.registerButton().should('be.visible').should('be.enabled')
         })
     })
-
 })

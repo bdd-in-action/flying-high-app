@@ -5,7 +5,8 @@ const WELCOME_CONTAINER = '.welcome-container'
 
 export class WelcomePage {
     open() {
-        cy.visit('https://bdd-flyer.herokuapp.com/')
+//        cy.visit('https://bdd-flyer.herokuapp.com/')
+        cy.visit('http://localhost:3000')
     }
 
     welcomeMessage() {

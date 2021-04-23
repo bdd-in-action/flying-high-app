@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "scripts": {
     "start": "npm start --prefix server",
-    "postinstall": "npm install --prefix server"
+    "postinstall": "npm install --prefix server",
+    "start-server": "npm start --prefix server &",
+    "pretest": "npm run start-server",
+    "test": "npx cypress run",
+    "posttest":"pkill -f npm"
   },
   "dependencies": {
     "@angular-devkit/build-angular": "^0.1102.8",

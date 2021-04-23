@@ -19,6 +19,18 @@ npm start
 This will start the application on http://localhost:3000/
 The API docs can be found on http://localhost:3000/api_doc/
 
+## Running the Cypress tests
+
+You can run the Cypress tests against a running server like this:
+```
+npx run cypress
+```
+
+You can start up the server and run the tests like this:
+```
+npm run test
+```
+
 ## To develp with the application
 
 To work on the code of the application itself, you can follow these instructions:

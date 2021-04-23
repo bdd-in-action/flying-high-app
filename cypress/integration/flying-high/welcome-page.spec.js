@@ -5,9 +5,6 @@ import { HomePage } from "../../pageobjects/WelcomePage"
 
 context('On the welcome page', () => {
 
-    const WELCOME_MESSAGE = '.welcome-message'
-    const MENU_BAR = '.operation-section'
-
     const homePage = new HomePage()
     const menuBar = new MenuBar()
 

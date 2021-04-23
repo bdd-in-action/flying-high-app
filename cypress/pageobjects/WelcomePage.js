@@ -5,7 +5,8 @@ const WELCOME_MESSAGE = '.welcome-message'
 export class HomePage {
 
     open() {
-        cy.visit('http://localhost:3000')
+//        cy.visit('http://localhost:3000')
+        cy.visit('https://bdd-flyer.herokuapp.com/')
     }
 
     welcomeMessage() {

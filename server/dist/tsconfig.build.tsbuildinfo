@@ -2182,8 +2182,8 @@
         "affectsGlobalScope": false
       },
       "../src/shared/services/users.service.ts": {
-        "version": "4645566ec458ef4c1de430531c46baea6f306187938520aa0afaf88e7f17068b",
-        "signature": "1cc99f701877537444ad70dc7a578fb6350724929aec67e2bbbefcc8947bcfb4",
+        "version": "ced92ad3a7c79fd4648a8357b7994f4724cb707937bf23b1ce6fb48f1ff70df3",
+        "signature": "2f9ad262102d6204b6f915b9ca3f513ab296613277137f0c5f8bdf44005650ba",
         "affectsGlobalScope": false
       },
       "../src/shared/services/auth.service.ts": {
@@ -2303,7 +2303,7 @@
       },
       "../src/app.controller.ts": {
         "version": "1ddd7df13abe776fe807bc4ad185bceb4ab9d570e3c6c9a44c0b42c9d0ab09df",
-        "signature": "0443fcf09e41b363a3bd923f450db725e17b7f87aaada13cf67d652d84eda269",
+        "signature": "e6a8350c88ba4a5b04bfbaeb28c0f0d52d58d96e47cdfd9ad7c408f4e0f54021",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/serve-static/dist/interfaces/serve-static-options.interface.d.ts": {
@@ -2588,7 +2588,7 @@
       },
       "../src/users/users.controller.ts": {
         "version": "f40e2766d1f70dffea0002edceead93fe74992286f085194268e7146f452c06d",
-        "signature": "47b1f9754855d8d7d9a5786cf257dc95006fc05cf19abaacaf359f5a60233b20",
+        "signature": "9507a10c9a6bf0d9b50295d177a43755da05b23db64063119b51c7cf1ee61795",
         "affectsGlobalScope": false
       },
       "../src/users/users.module.ts": {

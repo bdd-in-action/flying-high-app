@@ -48,7 +48,6 @@ let UsersService = class UsersService {
         return user;
     }
     createUser(user) {
-        console.log("CREATE USER: " + user);
         if (!user.email) {
             throw new common_1.BadRequestException(common_1.HttpStatus.BAD_REQUEST, 'Please enter your email');
         }
@@ -79,7 +78,7 @@ let UsersService = class UsersService {
             throw new common_1.BadRequestException(common_1.HttpStatus.BAD_REQUEST, 'User title is the type of enum: USER_TITLE: Mr, Ms OR Mrs');
         }
         const userId = this.generateRandomString(10);
-        const newUser = Object.assign(Object.assign({}, user), { userLevel: users_interface_1.USER_LEVEL.STANDARD, userId });
+        const newUser = Object.assign(Object.assign({}, user), { userLevel: users_interface_1.USER_LEVEL.STANDARD, points: 0, userId });
         this.users.push(newUser);
         return newUser;
     }
@@ -119,7 +118,6 @@ let UsersService = class UsersService {
         else if (user.title !== users_interface_1.USER_TITLE.MR && user.title !== users_interface_1.USER_TITLE.MS && user.title !== users_interface_1.USER_TITLE.MRS) {
             throw new common_1.BadRequestException(common_1.HttpStatus.BAD_REQUEST, 'User title is the type of enum: USER_TITLE: Mr, Ms OR Mrs');
         }
-        console.error("User = " + user.firstName);
         const index = this.users.findIndex(u => userId === u.userId);
         const points = this.users[index].points;
         const userLevel = this.users[index].userLevel;

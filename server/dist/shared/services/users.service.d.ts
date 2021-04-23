@@ -11,6 +11,7 @@ export declare class UsersService {
     getUserByEmail(email: string): User;
     createUser(user: UserDto): {
         userLevel: USER_LEVEL;
+        points: number;
         userId: string;
         email: string;
         password: string;
@@ -21,7 +22,6 @@ export declare class UsersService {
         title: USER_TITLE;
         newsletterSub: boolean;
         seatPreference: SEAT_PREFERENCE;
-        points: number;
     };
     deleteUser(userId: string): string;
     updateUser(userId: string, user: UserDto): User;

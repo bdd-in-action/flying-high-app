@@ -15,6 +15,7 @@ export declare class AppController {
     }>;
     register(user: UserDto): {
         userLevel: import("./users/interface/users.interface").USER_LEVEL;
+        points: number;
         userId: string;
         email: string;
         password: string;
@@ -25,7 +26,6 @@ export declare class AppController {
         title: import("./users/interface/users.interface").USER_TITLE;
         newsletterSub: boolean;
         seatPreference: import("./users/interface/users.interface").SEAT_PREFERENCE;
-        points: number;
     };
     getCountryList(search: string): Promise<any>;
 }

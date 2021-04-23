@@ -9,6 +9,7 @@ export declare class UsersController {
         userAccount: import("./interface/account.interface").Account[];
     };
     createUser(user: UserDto): {
+        userLevel: import("./interface/users.interface").USER_LEVEL;
         userId: string;
         email: string;
         password: string;
@@ -19,7 +20,6 @@ export declare class UsersController {
         title: import("./interface/users.interface").USER_TITLE;
         newsletterSub: boolean;
         seatPreference: import("./interface/users.interface").SEAT_PREFERENCE;
-        userLevel: import("./interface/users.interface").USER_LEVEL;
         points: number;
     };
     updateUser(user: UserDto, userId: string): import("./interface/users.interface").User;

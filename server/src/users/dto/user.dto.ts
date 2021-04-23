@@ -35,6 +35,6 @@ export class UserDto {
     userLevel: USER_LEVEL = USER_LEVEL.STANDARD;
 
     @ApiProperty()
-    points: number;
+    points: number = 0;
 
 }

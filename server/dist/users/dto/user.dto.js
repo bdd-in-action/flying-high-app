@@ -15,6 +15,7 @@ const users_interface_1 = require("../interface/users.interface");
 class UserDto {
     constructor() {
         this.userLevel = users_interface_1.USER_LEVEL.STANDARD;
+        this.points = 0;
     }
 }
 __decorate([

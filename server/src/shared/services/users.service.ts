@@ -101,7 +101,7 @@ export class UsersService {
 
         const newUser = {
             ...user,
-            // userLevel: USER_LEVEL.STANDARD,
+            userLevel: USER_LEVEL.STANDARD,
             userId
         }
         this.users.push(newUser);

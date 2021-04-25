@@ -37,6 +37,11 @@ let UsersController = class UsersController {
     getUserById(userId) {
         return this.service.getUserById(userId);
     }
+    earnPoints(userId, points) {
+        const user = this.service.getUserById(userId);
+        this.service.updateUserPointsAndLevel(user, points);
+        return user;
+    }
     deleteUser(userId) {
         return this.service.deleteUser(userId);
     }
@@ -86,6 +91,15 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "getUserById", null);
+__decorate([
+    common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
+    common_1.Get('/:userId/earn-points'),
+    swagger_1.ApiBearerAuth(),
+    __param(0, common_1.Param('userId')), __param(1, common_1.Query('points')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Number]),
+    __metadata("design:returntype", void 0)
+], UsersController.prototype, "earnPoints", null);
 __decorate([
     common_1.Delete(),
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),

@@ -2587,8 +2587,8 @@
         "affectsGlobalScope": false
       },
       "../src/users/users.controller.ts": {
-        "version": "f40e2766d1f70dffea0002edceead93fe74992286f085194268e7146f452c06d",
-        "signature": "9507a10c9a6bf0d9b50295d177a43755da05b23db64063119b51c7cf1ee61795",
+        "version": "b009c2390902bc82df73f9a8721df3684114b5c6b466425be7cb849b059ad784",
+        "signature": "13184603fa699f79f5dba281f2acf6c8f6265e2adbc9a16d9da496110eee9197",
         "affectsGlobalScope": false
       },
       "../src/users/users.module.ts": {
@@ -2931,6 +2931,16 @@
         "signature": "f9a2dd6a6084665f093ed0e9664b8e673be2a45e342a59dd4e0e4e552e68a9ad",
         "affectsGlobalScope": false
       },
+      "../../node_modules/@types/sinonjs__fake-timers/index.d.ts": {
+        "version": "558a9770503071d5a6fc6c596f7230bb79f2d034ced4a205bd1ebcad3b5879ec",
+        "signature": "558a9770503071d5a6fc6c596f7230bb79f2d034ced4a205bd1ebcad3b5879ec",
+        "affectsGlobalScope": false
+      },
+      "../../node_modules/@types/sizzle/index.d.ts": {
+        "version": "7ddac8a4ba398441cfd6d8a69380401378f122ee8cc2d848e6e32f4db2b6c876",
+        "signature": "7ddac8a4ba398441cfd6d8a69380401378f122ee8cc2d848e6e32f4db2b6c876",
+        "affectsGlobalScope": false
+      },
       "../../node_modules/@types/validator/index.d.ts": {
         "version": "4538d6984fc78e9886c00aa0cc7910dd25dc7a82edf7935aaf2141a3683f1bbb",
         "signature": "4538d6984fc78e9886c00aa0cc7910dd25dc7a82edf7935aaf2141a3683f1bbb",
@@ -2984,16 +2994,6 @@
       "../../../../../node_modules/@types/selenium-webdriver/index.d.ts": {
         "version": "253ad34774a7cb9cc2748179bfcdf355ea6745c30622925b5f4dca1411679ad5",
         "signature": "253ad34774a7cb9cc2748179bfcdf355ea6745c30622925b5f4dca1411679ad5",
-        "affectsGlobalScope": false
-      },
-      "../../../../../node_modules/@types/sinonjs__fake-timers/index.d.ts": {
-        "version": "558a9770503071d5a6fc6c596f7230bb79f2d034ced4a205bd1ebcad3b5879ec",
-        "signature": "558a9770503071d5a6fc6c596f7230bb79f2d034ced4a205bd1ebcad3b5879ec",
-        "affectsGlobalScope": false
-      },
-      "../../../../../node_modules/@types/sizzle/index.d.ts": {
-        "version": "7ddac8a4ba398441cfd6d8a69380401378f122ee8cc2d848e6e32f4db2b6c876",
-        "signature": "7ddac8a4ba398441cfd6d8a69380401378f122ee8cc2d848e6e32f4db2b6c876",
         "affectsGlobalScope": false
       },
       "../../../../../node_modules/@types/yauzl/index.d.ts": {
@@ -7271,12 +7271,12 @@
       "../../../../../node_modules/@types/selenium-webdriver/opera.d.ts",
       "../../../../../node_modules/@types/selenium-webdriver/remote.d.ts",
       "../../../../../node_modules/@types/selenium-webdriver/safari.d.ts",
-      "../../../../../node_modules/@types/sinonjs__fake-timers/index.d.ts",
-      "../../../../../node_modules/@types/sizzle/index.d.ts",
       "../../../../../node_modules/@types/yauzl/index.d.ts",
       "../../node_modules/@types/glob/index.d.ts",
       "../../node_modules/@types/minimatch/index.d.ts",
       "../../node_modules/@types/q/index.d.ts",
+      "../../node_modules/@types/sinonjs__fake-timers/index.d.ts",
+      "../../node_modules/@types/sizzle/index.d.ts",
       "../../node_modules/@types/validator/index.d.ts",
       "../node_modules/@babel/parser/typings/babel-parser.d.ts",
       "../node_modules/@babel/types/lib/index-ts3.7.d.ts",

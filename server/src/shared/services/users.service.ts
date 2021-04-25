@@ -225,26 +225,22 @@ export class UsersService {
         switch (userLevel) {
             case USER_LEVEL.BRONZE: {
                 earnedPoints = (1 + 0.25) * points;
-                console.error("BRONZE: earnedPoints = " + earnedPoints)
                 newTotalPoints = currentPoints + earnedPoints;
                 break;
             }
             case USER_LEVEL.SILVER: {
                 earnedPoints = (1 + 0.5) * points;
-                console.error("SILVER: earnedPoints = " + earnedPoints)
                 newTotalPoints = currentPoints + earnedPoints;
                 break;
             }
             case USER_LEVEL.GOLD: {
                 earnedPoints = points * 2;
-                console.error("GOLD: earnedPoints = " + earnedPoints)
                 newTotalPoints = currentPoints + points * 2;
                 break;
             }
             default: {
                 // standard level
                 earnedPoints = points * 1;
-                console.error("STANDARD: earnedPoints = " + earnedPoints)
                 newTotalPoints = currentPoints + earnedPoints;
                 break;
             }

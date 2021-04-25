@@ -58,6 +58,15 @@ export class UsersController {
         return user;
     }
 
+    @UseGuards(JwtAuthGuard)
+    @Get('/:userId/reset-points')
+    @ApiBearerAuth()
+    resetPoints(@Param('userId') userId: string) {
+        const user = this.service.getUserById(userId);
+        this.service.resetPoints(user)
+        return user;
+    }
+
     @Delete()
     @UseGuards(JwtAuthGuard)
     @ApiBody({ type: UserDto })

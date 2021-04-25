@@ -197,6 +197,15 @@ export class UsersService {
     }
 
     /**
+     * Reset earned points to 0 and status level to STANDARD.
+     */
+    resetPoints(authUser: User) {
+        const currentUserIndex = this.users.findIndex(u => u.userId === authUser.userId);
+        this.users[currentUserIndex].userLevel = USER_LEVEL.STANDARD;
+        this.users[currentUserIndex].points = 0;
+    }
+
+    /**
      * Threshold levels are:
      *  - BRONZE: 1000 points (25% bonus)
      *  - SILVER: 2000 points (50% bonus)
@@ -209,31 +218,34 @@ export class UsersService {
     updateUserPointsAndLevel(authUser: User, points: number): number {
         const userLevel = authUser.userLevel;
         const currentUserIndex = this.users.findIndex(u => u.userId === authUser.userId);
-        const currentPoints = authUser.points;
+        const currentPoints: number = authUser.points;
         // const totalPoints = points + currentPoints;
         let newTotalPoints: number;
         let earnedPoints: number;
         switch (userLevel) {
             case USER_LEVEL.BRONZE: {
                 earnedPoints = (1 + 0.25) * points;
-                newTotalPoints = earnedPoints + currentPoints;
+                console.error("BRONZE: earnedPoints = " + earnedPoints)
+                newTotalPoints = currentPoints + earnedPoints;
                 break;
             }
             case USER_LEVEL.SILVER: {
                 earnedPoints = (1 + 0.5) * points;
-                newTotalPoints = earnedPoints + currentPoints;
+                console.error("SILVER: earnedPoints = " + earnedPoints)
+                newTotalPoints = currentPoints + earnedPoints;
                 break;
             }
             case USER_LEVEL.GOLD: {
                 earnedPoints = points * 2;
+                console.error("GOLD: earnedPoints = " + earnedPoints)
                 newTotalPoints = currentPoints + points * 2;
-                console.log('EARNED POINTS:' + earnedPoints);
                 break;
             }
             default: {
                 // standard level
-                earnedPoints = points;
-                newTotalPoints = earnedPoints + currentPoints;
+                earnedPoints = points * 1;
+                console.error("STANDARD: earnedPoints = " + earnedPoints)
+                newTotalPoints = currentPoints + earnedPoints;
                 break;
             }
         }

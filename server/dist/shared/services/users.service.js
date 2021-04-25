@@ -142,6 +142,11 @@ let UsersService = class UsersService {
             userAccount
         };
     }
+    resetPoints(authUser) {
+        const currentUserIndex = this.users.findIndex(u => u.userId === authUser.userId);
+        this.users[currentUserIndex].userLevel = users_interface_1.USER_LEVEL.STANDARD;
+        this.users[currentUserIndex].points = 0;
+    }
     updateUserPointsAndLevel(authUser, points) {
         const userLevel = authUser.userLevel;
         const currentUserIndex = this.users.findIndex(u => u.userId === authUser.userId);
@@ -151,23 +156,26 @@ let UsersService = class UsersService {
         switch (userLevel) {
             case users_interface_1.USER_LEVEL.BRONZE: {
                 earnedPoints = (1 + 0.25) * points;
-                newTotalPoints = earnedPoints + currentPoints;
+                console.error("BRONZE: earnedPoints = " + earnedPoints);
+                newTotalPoints = currentPoints + earnedPoints;
                 break;
             }
             case users_interface_1.USER_LEVEL.SILVER: {
                 earnedPoints = (1 + 0.5) * points;
-                newTotalPoints = earnedPoints + currentPoints;
+                console.error("SILVER: earnedPoints = " + earnedPoints);
+                newTotalPoints = currentPoints + earnedPoints;
                 break;
             }
             case users_interface_1.USER_LEVEL.GOLD: {
                 earnedPoints = points * 2;
+                console.error("GOLD: earnedPoints = " + earnedPoints);
                 newTotalPoints = currentPoints + points * 2;
-                console.log('EARNED POINTS:' + earnedPoints);
                 break;
             }
             default: {
-                earnedPoints = points;
-                newTotalPoints = earnedPoints + currentPoints;
+                earnedPoints = points * 1;
+                console.error("STANDARD: earnedPoints = " + earnedPoints);
+                newTotalPoints = currentPoints + earnedPoints;
                 break;
             }
         }

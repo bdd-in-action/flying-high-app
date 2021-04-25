@@ -29,6 +29,7 @@ export declare class UsersService {
         totalPoints: number;
         userAccount: Account[];
     };
+    resetPoints(authUser: User): void;
     updateUserPointsAndLevel(authUser: User, points: number): number;
     generateRandomString(length: number, charSet?: string): string;
 }

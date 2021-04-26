@@ -174,6 +174,7 @@ let UsersService = class UsersService {
         const userLevel = authUser.userLevel;
         const currentUserIndex = this.users.findIndex(u => u.userId === authUser.userId);
         const currentPoints = authUser.points;
+        console.error("Updating User " + currentUserIndex + " : " + this.users[currentUserIndex].userId + " points");
         let newTotalPoints;
         let earnedPoints;
         switch (userLevel) {
@@ -199,6 +200,7 @@ let UsersService = class UsersService {
             }
         }
         newTotalPoints = Math.round(newTotalPoints);
+        console.error("User Index now should be: " + this.users.findIndex(u => u.userId === authUser.userId));
         if (newTotalPoints >= 5000) {
             this.users[currentUserIndex].userLevel = users_interface_1.USER_LEVEL.GOLD;
         }

@@ -107,7 +107,7 @@ export class UsersService {
             userId
         }
         if (user.userLevel) {
-            newUser.userLevel = user.userLevel;// USER_LEVEL[user.userLevel.toLowerCase()]
+            newUser.userLevel = user.userLevel;
             switch(newUser.userLevel) {
                 case USER_LEVEL.BRONZE: 
                     newUser.points = 1000;
@@ -243,6 +243,10 @@ export class UsersService {
         const userLevel = authUser.userLevel;
         const currentUserIndex = this.users.findIndex(u => u.userId === authUser.userId);
         const currentPoints: number = authUser.points;
+
+        console.error("Updating User " + currentUserIndex + " : " + this.users[currentUserIndex].userId + " points")
+
+
         // const totalPoints = points + currentPoints;
         let newTotalPoints: number;
         let earnedPoints: number;
@@ -270,6 +274,9 @@ export class UsersService {
             }
         }
         newTotalPoints = Math.round(newTotalPoints);
+
+        console.error("User Index now should be: " + this.users.findIndex(u => u.userId === authUser.userId))
+
         if (newTotalPoints >= 5000) {
             this.users[currentUserIndex].userLevel = USER_LEVEL.GOLD;
         } else if (newTotalPoints < 5000 && newTotalPoints >= 2000) {

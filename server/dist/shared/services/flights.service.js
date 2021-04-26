@@ -146,7 +146,7 @@ let FlightsService = class FlightsService {
         return flightResources;
     }
     async generateRandomTime(count, flight, flag) {
-        const result = (await this.http.get(`https://www.distance24.org/route.json?stops=${flight.departure.name}|${flight.destination.name}`).pipe(operators_1.delay(1000)).toPromise()).data;
+        const result = (await this.http.get(`https://www.distance24.org/route.json?stops=${flight.departure.name}|${flight.destination.name}`).pipe(operators_1.delay(3000)).toPromise()).data;
         const distance = result.distance;
         const travelDuration = this.getTravelDuration(distance);
         const totalTravelDuration = travelDuration.totalInHours * 3600000;

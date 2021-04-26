@@ -161,7 +161,7 @@ export class FlightsService {
     private async generateRandomTime(count: number, flight: Flight, flag: 'departure' | 'return') {
         const result: any = (await this.http.get(
             `https://www.distance24.org/route.json?stops=${flight.departure.name}|${flight.destination.name}`
-        ).pipe(delay(1000)).toPromise()).data;
+        ).pipe(delay(3000)).toPromise()).data;
         const distance = result.distance;
         const travelDuration = this.getTravelDuration(distance);
         const totalTravelDuration = travelDuration.totalInHours * 3600000;

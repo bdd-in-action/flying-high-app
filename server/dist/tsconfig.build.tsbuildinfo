@@ -2167,7 +2167,7 @@
         "affectsGlobalScope": false
       },
       "../src/shared/services/flights.service.ts": {
-        "version": "47e40a9706e268e85a102079b73102e451899ba342c3b9e8bb6ae0d1e50c4bee",
+        "version": "bb814766c1e516c5d84cc9e516b0972dbd93ed2513e612d059ed25aa5809a2a5",
         "signature": "ea18c700f0de9ee7707da13b6fa4c219bcf61c68a63f87df1b57233da8eaaeb3",
         "affectsGlobalScope": false
       },
@@ -2182,7 +2182,7 @@
         "affectsGlobalScope": false
       },
       "../src/shared/services/users.service.ts": {
-        "version": "23fb83aed0b7890e1d1e55f618b4092997522b75900c5f67f265137181471437",
+        "version": "72a17a04fb381ad2aa4b7d13fce52f798ec07d5eb59e39e64bf2333c4f9e93fd",
         "signature": "71faa0a3b477169b7826c2c2198b021dcc2ac5014a9543221dbb4eaf9131fd68",
         "affectsGlobalScope": false
       },

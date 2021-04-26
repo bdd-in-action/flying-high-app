@@ -28,7 +28,6 @@ let FlightsController = class FlightsController {
     }
     getCities(cityname) {
         let matchingCities = this.service.getCities(cityname);
-        console.log('Cities:' + matchingCities);
         if (matchingCities.length == 0) {
             throw new common_1.HttpException('No such city found', common_1.HttpStatus.NOT_FOUND);
         }

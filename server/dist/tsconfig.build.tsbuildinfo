@@ -1442,8 +1442,8 @@
         "affectsGlobalScope": false
       },
       "../src/users/interface/users.interface.ts": {
-        "version": "f83c7176e16285a13be29da9b765ebe6ebeeb655d274d163c0a0fbbd54c2159f",
-        "signature": "3a60d8b45a298b13f779982df1c2159e866eb285f35d74a80aee737f3a74555f",
+        "version": "158da369ee8af3aa55c0607f44b3661c14e7322e2d10cded68556cf2e7c77fe6",
+        "signature": "5a342056f14e90c4713c06782bce4aaf8adc12668ff911d7079698d615e5189a",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/swagger/dist/decorators/api-basic.decorator.d.ts": {
@@ -2167,7 +2167,7 @@
         "affectsGlobalScope": false
       },
       "../src/shared/services/flights.service.ts": {
-        "version": "a306b0097719ef7970ac20b570f93085164730ac1367da5825f8cc77270ab0e5",
+        "version": "47e40a9706e268e85a102079b73102e451899ba342c3b9e8bb6ae0d1e50c4bee",
         "signature": "ea18c700f0de9ee7707da13b6fa4c219bcf61c68a63f87df1b57233da8eaaeb3",
         "affectsGlobalScope": false
       },
@@ -2182,7 +2182,7 @@
         "affectsGlobalScope": false
       },
       "../src/shared/services/users.service.ts": {
-        "version": "4479ce857144e7acfc2bf310da21bc437b7eee0187f2e7f9e3b3b10a30388e48",
+        "version": "23fb83aed0b7890e1d1e55f618b4092997522b75900c5f67f265137181471437",
         "signature": "71faa0a3b477169b7826c2c2198b021dcc2ac5014a9543221dbb4eaf9131fd68",
         "affectsGlobalScope": false
       },
@@ -2577,7 +2577,7 @@
         "affectsGlobalScope": false
       },
       "../src/flights/flights.controller.ts": {
-        "version": "d6959bee3d686e7e749b652d710cc82a38a03d5538d0b5667d5cdf9854f375b2",
+        "version": "cb251e7524e78a40a0a90bcb09e25a830949ac3c3b12b77aae67ba91a24a67f6",
         "signature": "bc497b36aef6670a64fb6ef392e1b91b6d2f322e7eba8cfa44b80af21d51281d",
         "affectsGlobalScope": false
       },

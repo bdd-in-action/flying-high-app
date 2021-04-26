@@ -14,9 +14,9 @@ var SEAT_PREFERENCE;
 })(SEAT_PREFERENCE = exports.SEAT_PREFERENCE || (exports.SEAT_PREFERENCE = {}));
 var USER_LEVEL;
 (function (USER_LEVEL) {
-    USER_LEVEL["STANDARD"] = "standard";
-    USER_LEVEL["BRONZE"] = "bronze";
-    USER_LEVEL["SILVER"] = "silver";
-    USER_LEVEL["GOLD"] = "gold";
+    USER_LEVEL["STANDARD"] = "STANDARD";
+    USER_LEVEL["BRONZE"] = "BRONZE";
+    USER_LEVEL["SILVER"] = "SILVER";
+    USER_LEVEL["GOLD"] = "GOLD";
 })(USER_LEVEL = exports.USER_LEVEL || (exports.USER_LEVEL = {}));
 //# sourceMappingURL=users.interface.js.map

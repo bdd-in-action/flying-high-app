@@ -48,6 +48,7 @@ let UsersService = class UsersService {
         return user;
     }
     createUser(user) {
+        console.error("Creating new user " + user.email + "(status " + user.userLevel + ")");
         if (!user.email) {
             throw new common_1.BadRequestException(common_1.HttpStatus.BAD_REQUEST, 'Please enter your email');
         }
@@ -79,7 +80,27 @@ let UsersService = class UsersService {
         }
         const userId = this.generateRandomString(10);
         const newUser = Object.assign(Object.assign({}, user), { userLevel: users_interface_1.USER_LEVEL.STANDARD, points: 0, userId });
+        if (user.userLevel) {
+            newUser.userLevel = user.userLevel;
+            switch (newUser.userLevel) {
+                case users_interface_1.USER_LEVEL.BRONZE:
+                    newUser.points = 1000;
+                    break;
+                case users_interface_1.USER_LEVEL.SILVER:
+                    newUser.points = 2000;
+                    break;
+                case users_interface_1.USER_LEVEL.GOLD:
+                    newUser.points = 5000;
+                    break;
+                default:
+                    newUser.points = 0;
+            }
+        }
+        if (user.points) {
+            newUser.points = user.points * 1;
+        }
         this.users.push(newUser);
+        console.error("New user id " + newUser.userId + "(status=" + newUser.userLevel + ", points=" + newUser.points + ")");
         return newUser;
     }
     deleteUser(userId) {
@@ -148,6 +169,8 @@ let UsersService = class UsersService {
         this.users[currentUserIndex].points = 0;
     }
     updateUserPointsAndLevel(authUser, points) {
+        console.error("User " + authUser.email + " earns " + points + " points");
+        console.error("User status = " + authUser.userLevel);
         const userLevel = authUser.userLevel;
         const currentUserIndex = this.users.findIndex(u => u.userId === authUser.userId);
         const currentPoints = authUser.points;
@@ -156,25 +179,21 @@ let UsersService = class UsersService {
         switch (userLevel) {
             case users_interface_1.USER_LEVEL.BRONZE: {
                 earnedPoints = (1 + 0.25) * points;
-                console.error("BRONZE: earnedPoints = " + earnedPoints);
                 newTotalPoints = currentPoints + earnedPoints;
                 break;
             }
             case users_interface_1.USER_LEVEL.SILVER: {
                 earnedPoints = (1 + 0.5) * points;
-                console.error("SILVER: earnedPoints = " + earnedPoints);
                 newTotalPoints = currentPoints + earnedPoints;
                 break;
             }
             case users_interface_1.USER_LEVEL.GOLD: {
                 earnedPoints = points * 2;
-                console.error("GOLD: earnedPoints = " + earnedPoints);
                 newTotalPoints = currentPoints + points * 2;
                 break;
             }
             default: {
                 earnedPoints = points * 1;
-                console.error("STANDARD: earnedPoints = " + earnedPoints);
                 newTotalPoints = currentPoints + earnedPoints;
                 break;
             }
@@ -193,6 +212,8 @@ let UsersService = class UsersService {
             this.users[currentUserIndex].userLevel = users_interface_1.USER_LEVEL.STANDARD;
         }
         this.users[currentUserIndex].points = newTotalPoints;
+        console.error("New points = " + this.users[currentUserIndex].points);
+        console.error("New status = " + this.users[currentUserIndex].userLevel);
         return Math.round(earnedPoints);
     }
     generateRandomString(length, charSet) {

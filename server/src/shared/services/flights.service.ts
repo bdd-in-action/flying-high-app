@@ -24,6 +24,7 @@ export class FlightsService {
         { name: 'San Francisco', point: 142, short: 'SFO', region:'AMERICA' },
         { name: 'New York', point: 150, short: 'JFK', region:'AMERICA' },
         { name: 'Los Angeles', point: 147, short: 'LAX', region:'AMERICA' },
+        { name: 'Buenos Aires', point: 147, short: 'BUA', region:'AMERICA' },
         { name: 'Toronto', point: 132, short: 'YYZ', region:'AMERICA' },
         { name: 'Seattle', point: 122, short: 'SEA',region: 'AMERICA' },
         { name: 'Singapore', point: 162, short: 'SIN', region:'ASIA' },
@@ -160,7 +161,7 @@ export class FlightsService {
     private async generateRandomTime(count: number, flight: Flight, flag: 'departure' | 'return') {
         const result: any = (await this.http.get(
             `https://www.distance24.org/route.json?stops=${flight.departure.name}|${flight.destination.name}`
-        ).pipe(delay(3000)).toPromise()).data;
+        ).pipe(delay(1000)).toPromise()).data;
         const distance = result.distance;
         const travelDuration = this.getTravelDuration(distance);
         const totalTravelDuration = travelDuration.totalInHours * 3600000;

@@ -43,6 +43,7 @@ export class UsersService {
     }
 
     createUser(user: UserDto) {
+        console.error("Creating new user " + user.email + "(status " + user.userLevel + ")")
         if (!user.email) {
             throw new BadRequestException(
                 HttpStatus.BAD_REQUEST,
@@ -105,7 +106,27 @@ export class UsersService {
             points: 0,
             userId
         }
+        if (user.userLevel) {
+            newUser.userLevel = user.userLevel;// USER_LEVEL[user.userLevel.toLowerCase()]
+            switch(newUser.userLevel) {
+                case USER_LEVEL.BRONZE: 
+                    newUser.points = 1000;
+                    break;
+                case USER_LEVEL.SILVER: 
+                    newUser.points = 2000;
+                    break;
+                case USER_LEVEL.GOLD: 
+                    newUser.points = 5000;
+                    break;
+                default:
+                    newUser.points = 0;
+            }
+        }
+        if (user.points) {
+            newUser.points = user.points * 1
+        }
         this.users.push(newUser);
+        console.error("New user id " + newUser.userId + "(status=" + newUser.userLevel + ", points=" + newUser.points + ")")
         return newUser;
     }
 
@@ -216,6 +237,9 @@ export class UsersService {
      * @returns 
      */
     updateUserPointsAndLevel(authUser: User, points: number): number {
+        console.error("User " + authUser.email + " earns " + points + " points")
+        console.error("User status = " + authUser.userLevel)
+
         const userLevel = authUser.userLevel;
         const currentUserIndex = this.users.findIndex(u => u.userId === authUser.userId);
         const currentPoints: number = authUser.points;
@@ -256,6 +280,10 @@ export class UsersService {
             this.users[currentUserIndex].userLevel = USER_LEVEL.STANDARD;
         }
         this.users[currentUserIndex].points = newTotalPoints;
+
+        console.error("New points = " + this.users[currentUserIndex].points)
+        console.error("New status = " + this.users[currentUserIndex].userLevel)
+
         return Math.round(earnedPoints);
     }
 

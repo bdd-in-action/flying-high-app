@@ -22,11 +22,10 @@ export class FlightsController {
     @Get('cities')
     @ApiQuery({
         name: 'cityname',
-        description: 'get a list of cities with a specified name'
+            description: 'get a list of cities with a specified name'
     })
     getCities(@Query('cityname') cityname: string) {
         let matchingCities = this.service.getCities(cityname)
-        console.log('Cities:' + matchingCities)
         if (matchingCities.length == 0) {
             throw new HttpException('No such city found', HttpStatus.NOT_FOUND);
         }
